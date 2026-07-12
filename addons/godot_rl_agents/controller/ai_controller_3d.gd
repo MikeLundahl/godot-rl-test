@@ -30,6 +30,10 @@ enum ControlModes {
 ## Tutorial: https://github.com/edbeeching/godot_rl_agents/blob/main/docs/TRAINING_MULTIPLE_POLICIES.md
 @export var policy_name: String = "shared_policy"
 
+@onready var raycast_sensor := $RayCastSensor3D
+@onready var position_sensor := $PositionSensor3D
+@onready var approach_goal_reward := $ApproachNodeReward3D
+
 var onnx_model: ONNXModel
 
 var heuristic := "human"
@@ -52,12 +56,18 @@ func init(player: Node3D):
 #region Methods that need implementing using the "extend script" option in Godot
 func get_obs() -> Dictionary:
 	#assert(false, "the get_obs method is not implemented when extending from ai_controller")
-	return {"obs": []}
+	
+	var obs: Array
+	obs.append_array(raycast_sensor.get_observation())
+	obs.append_array(position_sensor.get_observation())
+	return {"obs": obs}
 
 
 func get_reward() -> float:
 	#assert(false, "the get_reward method is not implemented when extending from ai_controller")
 	#return 0.0
+	reward += approach_goal_reward.get_reward()
+	
 	return reward
 
 
