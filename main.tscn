@@ -1,0 +1,127 @@
+[gd_scene load_steps=6 format=3 uid="uid://biwn06gk0bkly"]
+
+[ext_resource type="PackedScene" uid="uid://cqrrxhrc171x7" path="res://scenes/arena/arena.tscn" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://dtgohs7cdekr4" path="res://addons/godot_rl_agents/sync.gd" id="2_0xm2m"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
+ground_bottom_color = Color(0.406683, 0.423291, 0.430375, 1)
+
+[sub_resource type="Sky" id="Sky_h2yge"]
+sky_material = SubResource("ProceduralSkyMaterial_0xm2m")
+
+[sub_resource type="Environment" id="Environment_1bvp3"]
+background_mode = 2
+sky = SubResource("Sky_h2yge")
+
+[node name="Main" type="Node3D"]
+
+[node name="Sync" type="Node" parent="."]
+script = ExtResource("2_0xm2m")
+control_mode = 2
+speed_up = 8.0
+onnx_model_path = "model.onnx"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.588133, 0.706814, -0.393083, -0.0705825, 0.529032, 0.845662, 0.805678, -0.469617, 0.36103, -153.271, 127.003, 130.774)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_1bvp3")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.878484, 0.151489, -0.45312, 0.332314, 0.487665, 0.80731, 0.343269, -0.859787, 0.378064, -5.38225, 34.456, 4.49073)
+shadow_enabled = true
+
+[node name="Arena" parent="." instance=ExtResource("1_ig7tw")]
+
+[node name="Arena2" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.841, 0, 0)
+
+[node name="Arena3" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.7455, 0, 0)
+
+[node name="Arena4" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.262, 0, 0)
+
+[node name="Arena5" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 42.5582)
+
+[node name="Arena6" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.841, 0, 42.5582)
+
+[node name="Arena7" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.7455, 0, 42.5582)
+
+[node name="Arena8" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.262, 0, 42.5582)
+
+[node name="Arena9" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 82.1941)
+
+[node name="Arena10" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.841, 0, 82.1941)
+
+[node name="Arena11" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.7455, 0, 82.1941)
+
+[node name="Arena12" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.262, 0, 82.1941)
+
+[node name="Arena13" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 124.3)
+
+[node name="Arena14" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.841, 0, 124.3)
+
+[node name="Arena15" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.7455, 0, 124.3)
+
+[node name="Arena16" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.262, 0, 124.3)
+
+[node name="Arena17" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.797, 0, 0)
+
+[node name="Arena18" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.956, 0, 0)
+
+[node name="Arena19" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.0514, 0, 0)
+
+[node name="Arena20" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.5353, 0, 0)
+
+[node name="Arena21" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.797, 0, 42.5582)
+
+[node name="Arena22" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.956, 0, 42.5582)
+
+[node name="Arena23" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.0514, 0, 42.5582)
+
+[node name="Arena24" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.5353, 0, 42.5582)
+
+[node name="Arena25" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.797, 0, 82.1941)
+
+[node name="Arena26" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.956, 0, 82.1941)
+
+[node name="Arena27" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.0514, 0, 82.1941)
+
+[node name="Arena28" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.5353, 0, 82.1941)
+
+[node name="Arena29" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.797, 0, 124.3)
+
+[node name="Arena30" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.956, 0, 124.3)
+
+[node name="Arena31" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.0514, 0, 124.3)
+
+[node name="Arena32" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.5353, 0, 124.3)

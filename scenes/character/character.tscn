@@ -1,0 +1,105 @@
+[gd_scene load_steps=9 format=3 uid="uid://ddkgxs1phdp1c"]
+
+[ext_resource type="Script" uid="uid://2e7iuq87w0yg" path="res://scenes/character/character.gd" id="1_6nn2t"]
+[ext_resource type="Script" uid="uid://big1ayo31br70" path="res://addons/godot_rl_agents/controller/ai_controller_3d.gd" id="2_mutn8"]
+[ext_resource type="Script" uid="uid://btmw2hixvkkmc" path="res://addons/godot_rl_agents/sensors/sensors_3d/RaycastSensor3D.gd" id="3_fgi2k"]
+[ext_resource type="Script" path="res://addons/godot_rl_agents/sensors/sensors_3d/PositionSensor3D.gd" id="4_fgi2k"]
+[ext_resource type="Script" uid="uid://duenv2rslhbhg" path="res://addons/godot_rl_agents/rewards/ApproachNodeReward3D.gd" id="5_f8hpl"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nxwtt"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6nn2t"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_cuyo6"]
+
+[node name="Character" type="CharacterBody3D"]
+script = ExtResource("1_6nn2t")
+
+[node name="AIController3D" type="Node3D" parent="." groups=["AGENT"]]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+script = ExtResource("2_mutn8")
+reset_after = 500
+
+[node name="RayCastSensor3D" type="Node3D" parent="AIController3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44771, 0.808733)
+script = ExtResource("3_fgi2k")
+n_rays_width = 4.0
+n_rays_height = 4.0
+ray_length = 3.315
+
+[node name="node_0_0 0_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
+target_position = Vector3(-1.17203, -1.2686, 2.82953)
+
+[node name="node_0_0 1_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
+target_position = Vector3(-1.25774, -0.432694, 3.03646)
+
+[node name="node_0_0 2_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
+target_position = Vector3(-1.25774, 0.432694, 3.03646)
+
+[node name="node_0_0 3_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
+target_position = Vector3(-1.17203, 1.2686, 2.82953)
+
+[node name="node_1_0 0_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
+target_position = Vector3(-0.399757, -1.2686, 3.03646)
+
+[node name="node_1_0 1_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
+target_position = Vector3(-0.428993, -0.432694, 3.25852)
+
+[node name="node_1_0 2_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
+target_position = Vector3(-0.428993, 0.432694, 3.25852)
+
+[node name="node_1_0 3_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
+target_position = Vector3(-0.399757, 1.2686, 3.03646)
+
+[node name="node_2_0 0_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
+target_position = Vector3(0.399757, -1.2686, 3.03646)
+
+[node name="node_2_0 1_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
+target_position = Vector3(0.428993, -0.432694, 3.25852)
+
+[node name="node_2_0 2_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
+target_position = Vector3(0.428993, 0.432694, 3.25852)
+
+[node name="node_2_0 3_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
+target_position = Vector3(0.399757, 1.2686, 3.03646)
+
+[node name="node_3_0 0_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
+target_position = Vector3(1.17203, -1.2686, 2.82953)
+
+[node name="node_3_0 1_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
+target_position = Vector3(1.25774, -0.432694, 3.03646)
+
+[node name="node_3_0 2_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
+target_position = Vector3(1.25774, 0.432694, 3.03646)
+
+[node name="node_3_0 3_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
+target_position = Vector3(1.17203, 1.2686, 2.82953)
+
+[node name="PositionSensor3D" type="Node3D" parent="AIController3D"]
+script = ExtResource("4_fgi2k")
+
+[node name="ApproachNodeReward3D" type="Node3D" parent="AIController3D"]
+script = ExtResource("5_f8hpl")
+metadata/_custom_type_script = "uid://duenv2rslhbhg"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00093, 0)
+shape = SubResource("CapsuleShape3D_nxwtt")
+
+[node name="TimerDistance" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="Mesh" type="Node3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.999469, 0)
+mesh = SubResource("CapsuleMesh_6nn2t")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37839, -0.407671)
+mesh = SubResource("SphereMesh_cuyo6")
+skeleton = NodePath("../..")
+
+[connection signal="timeout" from="TimerDistance" to="." method="_on_timer_distance_timeout"]
