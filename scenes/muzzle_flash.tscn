@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://buht7xni0leby"]
+
+[ext_resource type="Script" uid="uid://cmik3nw2u6wvd" path="res://scenes/muzzle_flash.gd" id="1_r2kf7"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_yjv0y"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r2kf7"]
+shading_mode = 0
+albedo_color = Color(0.967769, 0.751255, 0.275002, 1)
+
+[node name="MuzzleFlash" type="Node3D"]
+script = ExtResource("1_r2kf7")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("SphereMesh_yjv0y")
+surface_material_override/0 = SubResource("StandardMaterial3D_r2kf7")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

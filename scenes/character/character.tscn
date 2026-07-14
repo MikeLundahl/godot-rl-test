@@ -1,16 +1,17 @@
-[gd_scene load_steps=9 format=3 uid="uid://ddkgxs1phdp1c"]
+[gd_scene load_steps=10 format=3 uid="uid://ddkgxs1phdp1c"]
 
 [ext_resource type="Script" uid="uid://2e7iuq87w0yg" path="res://scenes/character/character.gd" id="1_6nn2t"]
 [ext_resource type="Script" uid="uid://big1ayo31br70" path="res://addons/godot_rl_agents/controller/ai_controller_3d.gd" id="2_mutn8"]
 [ext_resource type="Script" uid="uid://btmw2hixvkkmc" path="res://addons/godot_rl_agents/sensors/sensors_3d/RaycastSensor3D.gd" id="3_fgi2k"]
 [ext_resource type="Script" path="res://addons/godot_rl_agents/sensors/sensors_3d/PositionSensor3D.gd" id="4_fgi2k"]
 [ext_resource type="Script" uid="uid://duenv2rslhbhg" path="res://addons/godot_rl_agents/rewards/ApproachNodeReward3D.gd" id="5_f8hpl"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nxwtt"]
+[ext_resource type="Material" uid="uid://cr88v8tsytwvj" path="res://scenes/character/character.material" id="6_7ex5l"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_6nn2t"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_cuyo6"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nxwtt"]
 
 [node name="Character" type="CharacterBody3D"]
 script = ExtResource("1_6nn2t")
@@ -18,88 +19,311 @@ script = ExtResource("1_6nn2t")
 [node name="AIController3D" type="Node3D" parent="." groups=["AGENT"]]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
 script = ExtResource("2_mutn8")
-reset_after = 500
-
-[node name="RayCastSensor3D" type="Node3D" parent="AIController3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44771, 0.808733)
-script = ExtResource("3_fgi2k")
-n_rays_width = 4.0
-n_rays_height = 4.0
-ray_length = 3.315
-
-[node name="node_0_0 0_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
-target_position = Vector3(-1.17203, -1.2686, 2.82953)
-
-[node name="node_0_0 1_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
-target_position = Vector3(-1.25774, -0.432694, 3.03646)
-
-[node name="node_0_0 2_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
-target_position = Vector3(-1.25774, 0.432694, 3.03646)
-
-[node name="node_0_0 3_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
-target_position = Vector3(-1.17203, 1.2686, 2.82953)
-
-[node name="node_1_0 0_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
-target_position = Vector3(-0.399757, -1.2686, 3.03646)
-
-[node name="node_1_0 1_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
-target_position = Vector3(-0.428993, -0.432694, 3.25852)
-
-[node name="node_1_0 2_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
-target_position = Vector3(-0.428993, 0.432694, 3.25852)
-
-[node name="node_1_0 3_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
-target_position = Vector3(-0.399757, 1.2686, 3.03646)
-
-[node name="node_2_0 0_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
-target_position = Vector3(0.399757, -1.2686, 3.03646)
-
-[node name="node_2_0 1_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
-target_position = Vector3(0.428993, -0.432694, 3.25852)
-
-[node name="node_2_0 2_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
-target_position = Vector3(0.428993, 0.432694, 3.25852)
-
-[node name="node_2_0 3_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
-target_position = Vector3(0.399757, 1.2686, 3.03646)
-
-[node name="node_3_0 0_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
-target_position = Vector3(1.17203, -1.2686, 2.82953)
-
-[node name="node_3_0 1_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
-target_position = Vector3(1.25774, -0.432694, 3.03646)
-
-[node name="node_3_0 2_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
-target_position = Vector3(1.25774, 0.432694, 3.03646)
-
-[node name="node_3_0 3_0" type="RayCast3D" parent="AIController3D/RayCastSensor3D"]
-target_position = Vector3(1.17203, 1.2686, 2.82953)
 
 [node name="PositionSensor3D" type="Node3D" parent="AIController3D"]
 script = ExtResource("4_fgi2k")
+debug_lines = false
 
 [node name="ApproachNodeReward3D" type="Node3D" parent="AIController3D"]
 script = ExtResource("5_f8hpl")
 metadata/_custom_type_script = "uid://duenv2rslhbhg"
 
+[node name="ShootRoot" type="Node3D" parent="AIController3D"]
+
+[node name="RayCastShoot" type="Node3D" parent="AIController3D/ShootRoot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.52089e-08, 1.33121, 0.974676)
+
+[node name="RayCastSensor3D" type="Node3D" parent="AIController3D/ShootRoot"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.44771, 0.808733)
+script = ExtResource("3_fgi2k")
+n_rays_width = 16.0
+n_rays_height = 4.0
+ray_length = 9.665
+cone_width = 177.99
+cone_height = 15.92
+
+[node name="node_0_0 0_0" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-9.54951, -1.00523, 1.09937)
+
+[node name="node_0_0 1_0" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-9.59579, -0.335618, 1.1047)
+
+[node name="node_0_0 2_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-9.59579, 0.335618, 1.1047)
+
+[node name="node_0_0 3_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-9.54951, 1.00523, 1.09937)
+
+[node name="node_1_0 0_0" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-9.15797, -1.00523, 2.92119)
+
+[node name="node_1_0 1_0" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-9.20235, -0.335618, 2.93535)
+
+[node name="node_1_0 2_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-9.20235, 0.335618, 2.93535)
+
+[node name="node_1_0 3_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-9.15797, 1.00523, 2.92119)
+
+[node name="node_2_0 0_0" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-8.42228, -1.00523, 4.63324)
+
+[node name="node_2_0 1_0" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-8.4631, -0.335618, 4.6557)
+
+[node name="node_2_0 2_0" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-8.4631, 0.335618, 4.6557)
+
+[node name="node_2_0 3_0" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-8.42228, 1.00523, 4.63324)
+
+[node name="node_3_0 0_0" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-7.3701, -1.00523, 6.17117)
+
+[node name="node_3_0 1_0" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-7.40582, -0.335618, 6.20108)
+
+[node name="node_3_0 2_0" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-7.40582, 0.335618, 6.20108)
+
+[node name="node_3_0 3_0" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-7.3701, 1.00523, 6.17117)
+
+[node name="node_4_0 0_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-6.04096, -1.00523, 7.4772)
+
+[node name="node_4_0 1_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-6.07023, -0.335618, 7.51344)
+
+[node name="node_4_0 2_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-6.07023, 0.335618, 7.51344)
+
+[node name="node_4_0 3_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-6.04096, 1.00523, 7.4772)
+
+[node name="node_5_0 0_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-4.4848, -1.00523, 8.50225)
+
+[node name="node_5_0 1_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-4.50654, -0.335618, 8.54346)
+
+[node name="node_5_0 2_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-4.50654, 0.335618, 8.54346)
+
+[node name="node_5_0 3_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-4.4848, 1.00523, 8.50225)
+
+[node name="node_6_0 0_0" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-2.76012, -1.00523, 9.20779)
+
+[node name="node_6_0 1_0" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-2.77349, -0.335618, 9.25242)
+
+[node name="node_6_0 2_0" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-2.77349, 0.335618, 9.25242)
+
+[node name="node_6_0 3_0" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-2.76012, 1.00523, 9.20779)
+
+[node name="node_7_0 0_0" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-0.93171, -1.00523, 9.56732)
+
+[node name="node_7_0 1_0" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-0.936226, -0.335618, 9.61369)
+
+[node name="node_7_0 2_0" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-0.936226, 0.335618, 9.61369)
+
+[node name="node_7_0 3_0" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(-0.93171, 1.00523, 9.56732)
+
+[node name="node_8_0 0_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(0.93171, -1.00523, 9.56732)
+
+[node name="node_8_0 1_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(0.936226, -0.335618, 9.61369)
+
+[node name="node_8_0 2_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(0.936226, 0.335618, 9.61369)
+
+[node name="node_8_0 3_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(0.93171, 1.00523, 9.56732)
+
+[node name="node_9_0 0_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(2.76012, -1.00523, 9.20779)
+
+[node name="node_9_0 1_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(2.77349, -0.335618, 9.25242)
+
+[node name="node_9_0 2_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(2.77349, 0.335618, 9.25242)
+
+[node name="node_9_0 3_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(2.76012, 1.00523, 9.20779)
+
+[node name="node_10_0 0_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(4.4848, -1.00523, 8.50225)
+
+[node name="node_10_0 1_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(4.50654, -0.335618, 8.54346)
+
+[node name="node_10_0 2_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(4.50654, 0.335618, 8.54346)
+
+[node name="node_10_0 3_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(4.4848, 1.00523, 8.50225)
+
+[node name="node_11_0 0_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(6.04096, -1.00523, 7.4772)
+
+[node name="node_11_0 1_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(6.07023, -0.335618, 7.51344)
+
+[node name="node_11_0 2_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(6.07023, 0.335618, 7.51344)
+
+[node name="node_11_0 3_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(6.04096, 1.00523, 7.4772)
+
+[node name="node_12_0 0_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(7.3701, -1.00523, 6.17117)
+
+[node name="node_12_0 1_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(7.40582, -0.335618, 6.20108)
+
+[node name="node_12_0 2_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(7.40582, 0.335618, 6.20108)
+
+[node name="node_12_0 3_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(7.3701, 1.00523, 6.17117)
+
+[node name="node_13_0 0_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(8.42228, -1.00523, 4.63324)
+
+[node name="node_13_0 1_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(8.4631, -0.335618, 4.6557)
+
+[node name="node_13_0 2_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(8.4631, 0.335618, 4.6557)
+
+[node name="node_13_0 3_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(8.42228, 1.00523, 4.63324)
+
+[node name="node_14_0 0_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(9.15797, -1.00523, 2.92119)
+
+[node name="node_14_0 1_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(9.20235, -0.335618, 2.93535)
+
+[node name="node_14_0 2_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(9.20235, 0.335618, 2.93535)
+
+[node name="node_14_0 3_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(9.15797, 1.00523, 2.92119)
+
+[node name="node_15_0 0_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(9.54951, -1.00523, 1.09937)
+
+[node name="node_15_0 1_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(9.59579, -0.335618, 1.1047)
+
+[node name="node_15_0 2_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(9.59579, 0.335618, 1.1047)
+
+[node name="node_15_0 3_1" type="RayCast3D" parent="AIController3D/ShootRoot/RayCastSensor3D"]
+enabled = false
+target_position = Vector3(9.54951, 1.00523, 1.09937)
+
+[node name="Mesh" type="Node3D" parent="AIController3D/ShootRoot"]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="AIController3D/ShootRoot/Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.999469, 0)
+mesh = SubResource("CapsuleMesh_6nn2t")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = ExtResource("6_7ex5l")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="AIController3D/ShootRoot/Mesh"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37839, -0.240174)
+mesh = SubResource("SphereMesh_cuyo6")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = ExtResource("6_7ex5l")
+
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.00093, 0)
 shape = SubResource("CapsuleShape3D_nxwtt")
 
-[node name="TimerDistance" type="Timer" parent="."]
-wait_time = 3.0
-autostart = true
+[node name="TimerShoot" type="Timer" parent="."]
+wait_time = 0.1
 
-[node name="Mesh" type="Node3D" parent="."]
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 3.77628, 0)
+billboard = 1
+text = "SPRINTING"
+font_size = 120
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Mesh"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.999469, 0)
-mesh = SubResource("CapsuleMesh_6nn2t")
-skeleton = NodePath("../..")
-
-[node name="MeshInstance3D2" type="MeshInstance3D" parent="Mesh"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.37839, -0.407671)
-mesh = SubResource("SphereMesh_cuyo6")
-skeleton = NodePath("../..")
-
-[connection signal="timeout" from="TimerDistance" to="." method="_on_timer_distance_timeout"]
+[connection signal="timeout" from="TimerShoot" to="." method="_on_timer_shoot_timeout"]

@@ -18,11 +18,18 @@ sky = SubResource("Sky_h2yge")
 [node name="Sync" type="Node" parent="."]
 script = ExtResource("2_0xm2m")
 control_mode = 2
-speed_up = 8.0
+action_repeat = 4
 onnx_model_path = "model.onnx"
 
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.588133, 0.706814, -0.393083, -0.0705825, 0.529032, 0.845662, 0.805678, -0.469617, 0.36103, -153.271, 127.003, 130.774)
+transform = Transform3D(0.242806, 0.710249, -0.660751, -0.14693, 0.700201, 0.698663, 0.958883, -0.0725557, 0.274369, -384.352, 329.806, 287.887)
+visible = false
+fov = 30.0
+
+[node name="Camera3D2" type="Camera3D" parent="."]
+transform = Transform3D(0.290899, 0.615245, -0.732701, -0.064188, 0.776645, 0.62666, 0.954598, -0.135264, 0.265417, -206.791, 71.6654, 186.206)
+current = true
+fov = 30.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_1bvp3")
@@ -34,94 +41,214 @@ shadow_enabled = true
 [node name="Arena" parent="." instance=ExtResource("1_ig7tw")]
 
 [node name="Arena2" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.841, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.9109, 0, 0)
 
 [node name="Arena3" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.7455, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199.932, 0, 0)
 
 [node name="Arena4" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.262, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 295.496, 0, 0)
 
 [node name="Arena5" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 42.5582)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 118.834)
 
 [node name="Arena6" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.841, 0, 42.5582)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.9109, 0, 118.834)
 
 [node name="Arena7" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.7455, 0, 42.5582)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199.932, 0, 118.834)
 
 [node name="Arena8" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.262, 0, 42.5582)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 295.496, 0, 118.834)
 
 [node name="Arena9" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 82.1941)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 252.012)
 
 [node name="Arena10" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.841, 0, 82.1941)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.9109, 0, 252.012)
 
 [node name="Arena11" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.7455, 0, 82.1941)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199.932, 0, 252.012)
 
 [node name="Arena12" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.262, 0, 82.1941)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 295.496, 0, 252.012)
 
 [node name="Arena13" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 124.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 376.874)
 
 [node name="Arena14" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.841, 0, 124.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.9109, 0, 376.874)
 
 [node name="Arena15" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 74.7455, 0, 124.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199.932, 0, 376.874)
 
 [node name="Arena16" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 112.262, 0, 124.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 295.496, 0, 376.874)
 
 [node name="Arena17" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.797, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -413.625, 0, 0)
 
 [node name="Arena18" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.956, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -313.127, 0, 0)
 
 [node name="Arena19" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.0514, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -204.243, 0, 0)
 
 [node name="Arena20" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.5353, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.5427, 0, 0)
 
 [node name="Arena21" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.797, 0, 42.5582)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -413.625, 0, 118.834)
 
 [node name="Arena22" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.956, 0, 42.5582)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -313.127, 0, 118.834)
 
 [node name="Arena23" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.0514, 0, 42.5582)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -204.243, 0, 118.834)
 
 [node name="Arena24" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.5353, 0, 42.5582)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.5427, 0, 118.834)
 
 [node name="Arena25" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.797, 0, 82.1941)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -413.625, 0, 252.012)
 
 [node name="Arena26" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.956, 0, 82.1941)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -313.127, 0, 252.012)
 
 [node name="Arena27" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.0514, 0, 82.1941)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -204.243, 0, 252.012)
 
 [node name="Arena28" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.5353, 0, 82.1941)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.5427, 0, 252.012)
 
 [node name="Arena29" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -148.797, 0, 124.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -413.625, 0, 376.874)
 
 [node name="Arena30" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -110.956, 0, 124.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -313.127, 0, 376.874)
 
 [node name="Arena31" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -74.0514, 0, 124.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -204.243, 0, 376.874)
 
 [node name="Arena32" parent="." instance=ExtResource("1_ig7tw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -36.5353, 0, 124.3)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.5427, 0, 376.874)
+
+[node name="Arena33" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 509.333)
+
+[node name="Arena34" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.9109, 0, 509.333)
+
+[node name="Arena35" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199.932, 0, 509.333)
+
+[node name="Arena36" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 295.496, 0, 509.333)
+
+[node name="Arena37" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -413.625, 0, 509.333)
+
+[node name="Arena38" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -313.127, 0, 509.333)
+
+[node name="Arena39" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -204.243, 0, 509.333)
+
+[node name="Arena40" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.5427, 0, 509.333)
+
+[node name="Arena41" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 638.919)
+
+[node name="Arena42" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.9109, 0, 638.919)
+
+[node name="Arena43" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199.932, 0, 638.919)
+
+[node name="Arena44" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 295.496, 0, 638.919)
+
+[node name="Arena45" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -413.625, 0, 638.919)
+
+[node name="Arena46" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -313.127, 0, 638.919)
+
+[node name="Arena47" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -204.243, 0, 638.919)
+
+[node name="Arena48" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.5427, 0, 638.919)
+
+[node name="Arena49" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 778.381)
+
+[node name="Arena50" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.9109, 0, 778.381)
+
+[node name="Arena51" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199.932, 0, 778.381)
+
+[node name="Arena52" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 295.496, 0, 778.381)
+
+[node name="Arena53" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -413.625, 0, 778.381)
+
+[node name="Arena54" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -313.127, 0, 778.381)
+
+[node name="Arena55" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -204.243, 0, 778.381)
+
+[node name="Arena56" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.5427, 0, 778.381)
+
+[node name="Arena57" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 912.223)
+
+[node name="Arena58" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.9109, 0, 912.223)
+
+[node name="Arena59" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199.932, 0, 912.223)
+
+[node name="Arena60" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 295.496, 0, 912.223)
+
+[node name="Arena61" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -413.625, 0, 912.223)
+
+[node name="Arena62" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -313.127, 0, 912.223)
+
+[node name="Arena63" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -204.243, 0, 912.223)
+
+[node name="Arena64" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.5427, 0, 912.223)
+
+[node name="Arena65" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1051.28)
+
+[node name="Arena66" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 99.9109, 0, 1051.28)
+
+[node name="Arena67" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 199.932, 0, 1051.28)
+
+[node name="Arena68" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 295.496, 0, 1051.28)
+
+[node name="Arena69" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -413.625, 0, 1051.28)
+
+[node name="Arena70" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -313.127, 0, 1051.28)
+
+[node name="Arena71" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -204.243, 0, 1051.28)
+
+[node name="Arena72" parent="." instance=ExtResource("1_ig7tw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -99.5427, 0, 1051.28)

@@ -30,7 +30,7 @@ enum ControlModes {
 ## Tutorial: https://github.com/edbeeching/godot_rl_agents/blob/main/docs/TRAINING_MULTIPLE_POLICIES.md
 @export var policy_name: String = "shared_policy"
 
-@onready var raycast_sensor := $RayCastSensor3D
+@onready var raycast_sensor := $ShootRoot/RayCastSensor3D
 @onready var position_sensor := $PositionSensor3D
 @onready var approach_goal_reward := $ApproachNodeReward3D
 
@@ -80,7 +80,9 @@ func get_action_space() -> Dictionary:
 	
 	return {
 		"move": {"size": 2, "action_type": "continuous"},
-		"jump": {"size": 2, "action_type": "continuous"},
+		"jump": {"size": 1, "action_type": "continuous"},
+		"shoot": {"size": 1, "action_type": "continuous"},
+		"sprint": {"size": 1, "action_type": "continuous"}
 	}
 
 
@@ -90,7 +92,8 @@ func set_action(action) -> void:
 	_player.requested_movement.x = action["move"][0]
 	_player.requested_movement.y = action["move"][1]
 	_player.requested_jump = action["jump"][0] > 0
-
+	_player.requested_shoot = action["shoot"][0] > 0
+	_player.requested_sprint = action["sprint"][0] > 0
 
 #endregion
 
@@ -116,7 +119,7 @@ func get_info() -> Dictionary:
 func _physics_process(delta):
 	n_steps += 1
 	if n_steps > reset_after:
-		reward -= 0.1
+		reward -= 0.3
 		needs_reset = true
 		done = true
 

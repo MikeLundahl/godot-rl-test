@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://ukpdko7w6xna"]
+
+[ext_resource type="Script" uid="uid://dtgohs7cdekr4" path="res://addons/godot_rl_agents/sync.gd" id="1_1v3fn"]
+[ext_resource type="PackedScene" uid="uid://cqrrxhrc171x7" path="res://scenes/arena/arena.tscn" id="2_pa0we"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1v3fn"]
+ground_bottom_color = Color(0.448962, 0.464709, 0.48059, 1)
+
+[sub_resource type="Sky" id="Sky_pa0we"]
+sky_material = SubResource("ProceduralSkyMaterial_1v3fn")
+
+[sub_resource type="Environment" id="Environment_4374j"]
+background_mode = 2
+sky = SubResource("Sky_pa0we")
+
+[node name="MainInference" type="Node3D"]
+
+[node name="Sync" type="Node" parent="."]
+script = ExtResource("1_1v3fn")
+control_mode = 2
+action_repeat = 4
+onnx_model_path = "model.onnx"
+metadata/_custom_type_script = "uid://dtgohs7cdekr4"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_4374j")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(0.559615, 0.796749, -0.228083, -0.393616, 0.497716, 0.772881, 0.729313, -0.342739, 0.592142, 0, 37.19, 0)
+shadow_enabled = true
+directional_shadow_max_distance = 200.0
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(0.51235, 0.678918, -0.525896, -0.11873, 0.662497, 0.739595, 0.85053, -0.316492, 0.420039, -86.3854, 90.117, 91.9097)
+fov = 30.0
+
+[node name="Arena" parent="." instance=ExtResource("2_pa0we")]

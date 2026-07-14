@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cqrrxhrc171x7"]
+[gd_scene load_steps=13 format=3 uid="uid://cqrrxhrc171x7"]
 
 [ext_resource type="PackedScene" uid="uid://ddkgxs1phdp1c" path="res://scenes/character/character.tscn" id="1_1qjuf"]
 [ext_resource type="Script" uid="uid://0r4ai186dkme" path="res://scenes/arena/goal.gd" id="1_5tue2"]
 [ext_resource type="Script" uid="uid://bp4akqd2n1h17" path="res://scenes/arena/walls.gd" id="2_8trdl"]
+[ext_resource type="PackedScene" uid="uid://bnmf0uww5ii6s" path="res://scenes/enemy/enemy.tscn" id="4_aj7ud"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_n62jo"]
 albedo_color = Color(0.497474, 0.497474, 0.497474, 1)
@@ -17,7 +18,93 @@ albedo_color = Color(0.553929, 0.567532, 0.576522, 1)
 size = Vector3(6.81586, 1, 1.97656)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_8trdl"]
-size = Vector3(67, 6.43994, 62)
+size = Vector3(123.186, 6.43994, 80.3461)
+
+[sub_resource type="Animation" id="Animation_asdgj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemy:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-21.234, 0.841786, 23.117)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Enemy2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.105137, 0.797757, 31.5621)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Enemy3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-20.2279, 0.586141, 42.2447)]
+}
+
+[sub_resource type="Animation" id="Animation_aj7ud"]
+resource_name = "enemies"
+length = 3.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Enemy:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.96667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-21.234, 0.841786, 23.117), Vector3(-1.76166, 0.841786, 23.117), Vector3(-21.234, 0.841786, 23.117)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Enemy2:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.52, 2.96),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.105137, 0.797757, 31.5621), Vector3(-21.8645, 0.797757, 31.5621), Vector3(-0.105137, 0.797757, 31.5621)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Enemy3:position")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.5, 2.95912),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-36.862, 0.586141, 31.3563), Vector3(-17.9725, 0.586141, 48.1288), Vector3(-36.862, 0.586141, 31.3563)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jx0ua"]
+_data = {
+&"RESET": SubResource("Animation_asdgj"),
+&"enemies": SubResource("Animation_aj7ud")
+}
 
 [node name="Arena" type="Node3D"]
 
@@ -28,13 +115,25 @@ use_collision = true
 size = Vector3(10, 1, 24.688)
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.3467, 0, 14.1037)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.3178, 0, 35.2277)
 material_override = SubResource("StandardMaterial3D_n62jo")
 use_collision = true
-size = Vector3(30.6935, 1, 8.76086)
+size = Vector3(54.5945, 1, 51.0089)
+
+[node name="Wall" type="CSGBox3D" parent="."]
+transform = Transform3D(0.925223, 0, 0.379424, 0, 1, 0, -0.379424, 0, 0.925223, -16.8903, 2.27094, 56.4947)
+material_override = SubResource("StandardMaterial3D_n62jo")
+use_collision = true
+size = Vector3(43.6874, 5.54187, 12.0172)
+
+[node name="Wall2" type="CSGBox3D" parent="."]
+transform = Transform3D(0.925223, 0, 0.379424, 0, 1, 0, -0.379424, 0, 0.925223, -29.8313, 2.27094, 18.6442)
+material_override = SubResource("StandardMaterial3D_n62jo")
+use_collision = true
+size = Vector3(39.8644, 5.54187, 12.0172)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.3903, 0.52533, 14.0739)
+transform = Transform3D(0.686923, 0, -0.726731, 0, 1, 0, 0.726731, 0, 0.686923, -44.4592, 0.52533, 47.6563)
 material_override = SubResource("StandardMaterial3D_5tue2")
 use_collision = true
 size = Vector3(4.73454, 2.05066, 5.14066)
@@ -49,25 +148,43 @@ size = Vector3(10.4629, 2.05066, 2.36232)
 script = ExtResource("1_5tue2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Goal"]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 19.6052, 1.02634, 14.2549)
+transform = Transform3D(-0.70081, 0, 0.713348, 0, 1, 0, -0.713348, 0, -0.70081, -41.9792, 1.02634, 45.3871)
 shape = SubResource("BoxShape3D_n62jo")
 
 [node name="Character" parent="." instance=ExtResource("1_1qjuf")]
 transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 1.11819, -8.61319)
 
-[node name="PositionSensor3D" parent="Character/AIController3D" index="1" node_paths=PackedStringArray("objects_to_observe")]
+[node name="PositionSensor3D" parent="Character/AIController3D" index="0" node_paths=PackedStringArray("objects_to_observe")]
 objects_to_observe = [NodePath("../.."), NodePath("../../../Goal/CollisionShape3D")]
+max_distance = 3.0
 
-[node name="ApproachNodeReward3D" parent="Character/AIController3D" index="2" node_paths=PackedStringArray("target_node")]
+[node name="ApproachNodeReward3D" parent="Character/AIController3D" index="1" node_paths=PackedStringArray("target_node")]
 target_node = NodePath("../../../Goal/CollisionShape3D")
-reward_scale = 0.1
+reward_scale = 0.3
 
 [node name="Walls" type="Area3D" parent="."]
 script = ExtResource("2_8trdl")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Walls"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 11.2693, -6.96368, 2.43129)
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -16.758, -6.96368, 30.5241)
 shape = SubResource("BoxShape3D_8trdl")
+
+[node name="Enemies" type="Node3D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies"]
+libraries = {
+&"": SubResource("AnimationLibrary_jx0ua")
+}
+autoplay = "enemies"
+
+[node name="Enemy" parent="Enemies" instance=ExtResource("4_aj7ud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.234, 0.841786, 23.117)
+
+[node name="Enemy2" parent="Enemies" instance=ExtResource("4_aj7ud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.105137, 0.797757, 31.5621)
+
+[node name="Enemy3" parent="Enemies" instance=ExtResource("4_aj7ud")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -20.2279, 0.586141, 42.2447)
 
 [connection signal="body_entered" from="Goal" to="Goal" method="_on_body_entered"]
 [connection signal="body_entered" from="Walls" to="Walls" method="_on_body_entered"]
